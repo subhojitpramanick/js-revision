@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        background: #192f63cf;
+      }
+      h1 {
+        color: #fff;
+      }
+      button {
+        font-size: large;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        background: #8dedeccf;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stone Paper Scissors</h1>
+    <br />
+    <p>Welcome to the Stone Paper Scissors game!</p>
+    <button onclick="rock()">Rock</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="scissors()">Scissors</button>
+    <script>
+      let userChoice = "";
+      function game(userChoice) {
+        const choices = ["rock", "paper", "scissors"];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        if (userChoice === computerChoice) {
+          alert("It's a tie! Both chose " + userChoice);
+        } else if (
+          (userChoice === "rock" && computerChoice === "scissors") ||
+          (userChoice === "paper" && computerChoice === "rock") ||
+          (userChoice === "scissors" && computerChoice === "paper")
+        ) {
+          alert("You win! " + userChoice + " beats " + computerChoice);
+        } else {
+          alert("You lose! " + computerChoice + " beats " + userChoice);
+        }
+      }
+      function scissors() {
+        userChoice = "scissors";
+        game(userChoice);
+      }
+      function paper() {
+        userChoice = "paper";
+        game(userChoice);
+      }
+      function rock() {
+        userChoice = "rock";
+        game(userChoice);
+      }
+      function reset() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
